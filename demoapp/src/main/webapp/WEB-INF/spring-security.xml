@@ -9,9 +9,8 @@
       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd"> 
    <http auto-config="true">
       <intercept-url pattern="/products**" access="hasRole('ROLE_ADMIN')" />
-    <!--    <form-login />
- 
-      <logout logout-success-url="/" logout-url="/logout"/>
+      <!--    <form-login />
+       <logout logout-success-url="/" logout-url="/logout"/>
       -->
       <form-login 
 		    login-page="/login" 
@@ -21,7 +20,7 @@
 			password-parameter="password" />
 <logout logout-success-url="/login" />
 		<!-- enable csrf protection -->
-		<csrf/>
+		<csrf disabled="true"/>
    </http>
  <jdbc-user-service data-source-ref="dataSource"
 		  users-by-username-query=

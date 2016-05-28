@@ -77,7 +77,7 @@ public class ProductController {
 
     				// Creating the directory to store file
     				String rootPath = System.getProperty("catalina.home");
-    				File dir = new File(rootPath + File.separator + "tmpFiles");
+    				File dir = new File(rootPath + File.separator + "images");
     				if (!dir.exists())
     					dir.mkdirs();
                     
@@ -92,7 +92,7 @@ public class ProductController {
     				logger.info("Server File Location="
     						+ serverFile.getAbsolutePath());
 
-    				return "You successfully uploaded file=" + name;
+    			   return "redirect:/products";
     			} catch (Exception e) {
     				return "You failed to upload " + name + " => " + e.getMessage();
     			}
@@ -104,9 +104,10 @@ public class ProductController {
         }else{
             //existing product, call update
             this.productService.updateProduct(p);
+            return "redirect:/products";
         }
          
-        return "redirect:/products";
+      
          
     }
      
