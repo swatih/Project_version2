@@ -24,9 +24,19 @@
         <beans:property name="prefix" value="/WEB-INF/views/" />
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
+    <!--Define FlowHandlerMapping to tell DispatcherServlet (in web.xml)
+to send flow requests to Spring Web Flow -->
+<beans:bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+<beans:property name="flowRegistry" ref="loginFlowRegistry" />
+</beans:bean>
+<!-- Define FlowHandlerAdapter to handle Spring Web Flow request call.
+This is the Controller class in Spring Web Flow -->
+<beans:bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+<beans:property name="flowExecutor" ref="loginFlowExecutor" />
+</beans:bean>
     <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     	 <!-- setting maximum upload size -->
-		<beans:property name="maxUploadSize" value="100000" />
+		<beans:property name="maxUploadSize" value="500000" />
 	</beans:bean>
     <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
         destroy-method="close">

@@ -20,6 +20,7 @@ s5=request.getParameter("price");;
 out.println(s1+"  "+s2+" "+s3+" "+s4+" "+s5);
 
 %>
+<form><input type="submit" value="Add to cart"></form>
 
  </p>
 </div>

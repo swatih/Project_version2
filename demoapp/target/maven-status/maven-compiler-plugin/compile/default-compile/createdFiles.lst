@@ -7,3 +7,4 @@ demoapp\controller\HomeController.class
 demoapp\model\Person.class
 demoapp\service\PersonService.class
 demoapp\dao\ProductDAO.class
+demoapp\service\FlowService.class
